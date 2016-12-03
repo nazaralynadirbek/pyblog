@@ -1,0 +1,220 @@
+@main    : #3e70ff;
+@title   : #1d1d1f;
+@details : #768093;
+
+.container {
+  .top {
+    .header {
+      padding: 15px 30px;
+      box-shadow: rgba(29, 29, 31, 0.07) 0 10px 60px;
+
+      .left,
+      .middle,
+      .right {
+        display: block;
+        width: calc(~"100% / 3");
+      }
+      .left,
+      .middle {
+        float: left;
+        height: 43px;
+        overflow: hidden;
+      }
+      .left {
+        .logo {
+          height: 31px;
+          padding: 6px 0;
+          
+          img {
+            height: 31px;
+          }
+        }
+      }
+      .middle {
+        line-height: 43px;
+        text-align: center;
+
+        ul.list {
+          font-size: 0;
+
+          li {
+            font-size: 15px;
+            display: inline-block;
+
+            a {
+              color: @details;
+              text-decoration: none;
+
+              &.active {
+                color: @title;
+                font-weight: bold;
+              }
+            }
+
+            &:after {
+              content: '/';
+              margin: 0 15px;
+              display: inline-block;
+              color: lighten(@details, 30%);
+            }
+            &:last-child {
+              &:after {
+                content: none;
+              }
+            }
+          }
+        }
+      }
+      .right {
+        float: right;
+
+        .menu {
+          text-align: right;
+
+          ul.list {
+            font-size: 0;
+
+            li {
+              list-style: none;
+              margin-left: 40px;
+              display: inline-block;
+
+              a {
+                color: @title;
+                font-size: 16px;
+                text-decoration: none;
+
+                &.btn {
+                  color: #fff;
+                  font-size: 13px;
+                  line-height: 1em;
+                  font-weight: bold;
+                  padding: 15px 22px;
+                  border-radius: 3px;
+                  display: inline-block;
+                  box-shadow: rgba(23, 43, 99, 0.24) 0 7px 28px;
+                }
+                &.btn-default {
+                  background-color: @main;
+                }
+              }
+
+              &:first-child {
+                margin-left: 0;
+              }
+            }
+          }
+        }
+      }
+
+      &:after {
+        clear: both;
+        content: '';
+        display: block;
+      }
+    }
+  }
+  .middle {
+    .content {
+      .articles {
+        .article {
+          margin-bottom: 40px;
+
+          .top {
+            line-height: 32px;
+
+            .left,
+            .right {
+              width: 50%;
+            }
+            .left {
+              float: left;
+
+              .title {
+                h3 {
+                  font-size: 26px;
+                  font-weight: 400;
+
+                  a {
+                    color: @title;
+                    text-decoration: none;
+
+                    &:hover {
+                      color: lighten(@title, 20%);
+                    }
+                  }
+                }
+              }
+            }
+            .right {
+              float: right;
+
+              .details {
+                text-align: right;
+
+                ul.list {
+                  font-size: 0;
+
+                  li {
+                    font-size: 13px;
+                    color: @details;
+                    list-style: none;
+                    margin-left: 20px;
+                    display: inline-block;
+
+                    span {
+                      color: @title;
+                    }
+
+                    &:first-child {
+                      margin-left: 0;
+                    }
+                  }
+                }
+              }
+            }
+
+            &:after {
+              content: '';
+              clear: both;
+              display: block;
+            }
+          }
+          .bottom {
+            .details {
+              color: @details;
+
+              p {
+                font-size: 18px;
+                font-weight: 400;
+                line-height: 1.5;
+              }
+            }
+          }
+
+          &:last-child {
+            margin-bottom: 0;
+          }
+        }
+      }
+    }
+    .content.wrapper {
+      margin: 0 auto;
+      max-width: 810px;
+      padding: 100px 20px 0;
+    }
+  }
+  .bottom {
+    .paginator {
+      text-align: left;
+
+      a {
+        color: @main;
+      }
+    }
+    .paginator.wrapper {
+      max-width: 810px;
+      margin: 88px auto;
+    }
+  }
+}

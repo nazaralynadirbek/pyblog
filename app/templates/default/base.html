@@ -1,0 +1,29 @@
+<!Doctype html>
+<html>
+    <head>
+        <title></title>
+
+        <!-- Meta -->
+        <meta charset="utf-8">
+
+        <!-- Styles -->
+        <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='styles/css/default.css') }}">
+        <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='styles/css/desktop.css') }}">
+        <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='styles/css/font-awesome.css') }}">
+    </head>
+    <body>
+        <div class="container">
+            <div class="top">
+                {% include 'default/include/header.html' %}
+            </div>
+            <div class="middle">
+                {% block content %}
+
+                {% endblock %}
+            </div>
+            <div class="bottom">
+                {% include 'default/include/footer.html' %}
+            </div>
+        </div>
+    </body>
+</html>
