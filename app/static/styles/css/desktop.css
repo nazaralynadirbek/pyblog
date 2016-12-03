@@ -6,7 +6,7 @@
 .container .top .header .middle,
 .container .top .header .right {
   display: block;
-  width: calc(100% / 3);
+  width: calc(33.33333333%);
 }
 .container .top .header .left,
 .container .top .header .middle {
@@ -163,6 +163,7 @@
   color: #3e70ff;
 }
 .container .bottom .paginator.wrapper {
+  padding: 0 20px;
   max-width: 810px;
   margin: 88px auto;
 }

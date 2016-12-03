@@ -1,0 +1,28 @@
+@media screen and (max-width: 1024px) {
+  .container .top .header .left,
+  .container .top .header .right {
+    width: 50%;
+  }
+  .container .top .header .middle {
+    display: none;
+  }
+}
+@media screen and (max-width: 720px) {
+  .container .top .header .left {
+    width: 20%;
+  }
+  .container .top .header .right {
+    width: 80%;
+  }
+}
+@media screen and (max-width: 520px) {
+  .container .top .header .right {
+    display: none;
+  }
+  .container .middle .content .articles .article .top .left {
+    width: 100%;
+  }
+  .container .middle .content .articles .article .top .right {
+    display: none;
+  }
+}
