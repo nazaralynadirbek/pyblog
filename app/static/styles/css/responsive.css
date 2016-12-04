@@ -16,6 +16,10 @@
   }
 }
 @media screen and (max-width: 520px) {
+  .container .top .header .left {
+    width: 100%;
+    text-align: center;
+  }
   .container .top .header .right {
     display: none;
   }

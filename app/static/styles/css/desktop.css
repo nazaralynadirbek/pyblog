@@ -21,6 +21,9 @@
 .container .top .header .left .logo img {
   height: 31px;
 }
+.container .top .header .left .logo img:hover {
+  opacity: .8;
+}
 .container .top .header .middle {
   line-height: 43px;
   text-align: center;
@@ -65,7 +68,7 @@
 }
 .container .top .header .right .menu ul.list li a {
   color: #1d1d1f;
-  font-size: 16px;
+  font-size: 15px;
   text-decoration: none;
 }
 .container .top .header .right .menu ul.list li a.btn {
