@@ -1,5 +1,6 @@
 .container .top .header {
   padding: 15px 30px;
+  background-color: #ffffff;
   box-shadow: rgba(29, 29, 31, 0.07) 0 10px 60px;
 }
 .container .top .header .left,
@@ -93,7 +94,9 @@
   display: block;
 }
 .container .middle .content .articles .article {
-  margin-bottom: 40px;
+  margin-bottom: 30px;
+  padding-bottom: 30px;
+  border-bottom: 1px solid #dde1e5;
 }
 .container .middle .content .articles .article .top {
   line-height: 32px;
@@ -148,25 +151,31 @@
 }
 .container .middle .content .articles .article .bottom .details p {
   font-size: 18px;
+  margin-top: 1em;
   font-weight: 400;
   line-height: 1.5;
 }
 .container .middle .content .articles .article:last-child {
   margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: none;
 }
 .container .middle .content.wrapper {
   margin: 0 auto;
   max-width: 810px;
   padding: 100px 20px 0;
 }
-.container .bottom .paginator {
+.container .bottom .footer {
+  margin: 88px auto;
+}
+.container .bottom .footer .paginator {
   text-align: left;
 }
-.container .bottom .paginator a {
+.container .bottom .footer .paginator a {
   color: #3e70ff;
 }
-.container .bottom .paginator.wrapper {
+.container .bottom .footer .paginator.wrapper {
+  margin: 0 auto;
   padding: 0 20px;
   max-width: 810px;
-  margin: 88px auto;
 }
