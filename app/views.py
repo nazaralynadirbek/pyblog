@@ -2,7 +2,6 @@
 
 from app import app
 
-# Flask modules
 from flask import redirect
 from flask import render_template
 
@@ -21,4 +20,4 @@ def articles():
 
 @app.route('/articles/<article>')
 def article(article):
-    return render_template('default/content/articles.html')
+    return render_template('default/content/article.html')

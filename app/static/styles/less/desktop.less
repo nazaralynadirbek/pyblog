@@ -119,10 +119,14 @@
       }
     }
   }
+
   .middle {
     .content {
       .articles {
         .article {
+          background-color: transparent;
+        }
+        .article.short {
           margin-bottom: 30px;
           padding-bottom: 30px;
           border-bottom: 1px solid #dde1e5;
@@ -192,10 +196,10 @@
               color: @details;
 
               p {
-                font-size: 18px;
+                font-size: 16px;
                 margin-top: 1em;
                 font-weight: 400;
-                line-height: 1.5;
+                line-height: 1.6;
               }
             }
           }
@@ -206,6 +210,74 @@
             border-bottom: none;
           }
         }
+        .article.full {
+          .top {
+            .top {
+              line-height: 32px;
+
+              .title {
+                h3 {
+                  font-size: 26px;
+                  font-weight: 400;
+
+                  a {
+                    color: @title;
+                    text-decoration: none;
+
+                    &:hover {
+                      color: lighten(@title, 20%);
+                    }
+                  }
+                }
+              }
+            }
+            .bottom {
+              .details {
+                margin: 1em 0 2em;
+
+                ul.list {
+                  font-size: 0;
+
+                  li {
+                    font-size: 13px;
+                    color: @details;
+                    list-style: none;
+                    margin-left: 40px;
+                    display: inline-block;
+
+                    span {
+                      color: @title;
+                    }
+
+                    &:first-child {
+                      margin-left: 0;
+                    }
+                  }
+                }
+              }
+            }
+          }
+          .bottom {
+            .details {
+              color: @details;
+
+              p {
+                font-size: 16px;
+                margin-top: 1em;
+                font-weight: 400;
+                line-height: 1.6;
+
+                &:first-child {
+                  margin-top: 0;
+                }
+              }
+              img {
+                width: 100%;
+                display: block;
+              }
+            }
+          }
+        }
       }
     }
     .content.wrapper {
@@ -214,18 +286,23 @@
       padding: 100px 20px 0;
     }
   }
+
   .bottom {
     .footer {
-      margin: 88px auto;
+      padding: 88px 0;
 
       .paginator {
         text-align: left;
 
         a {
           color: @main;
+
+          &:visited {
+            color: @main;
+          }
         }
       }
-      .paginator.wrapper {
+      .wrapper {
         margin: 0 auto;
         padding: 0 20px;
         max-width: 810px;

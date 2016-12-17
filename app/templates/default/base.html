@@ -10,7 +10,6 @@
         <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='styles/css/default.css') }}">
         <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='styles/css/desktop.css') }}">
         <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='styles/css/responsive.css') }}">
-        <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='styles/css/font-awesome.css') }}">
     </head>
     <body>
         <div class="container">
@@ -23,7 +22,9 @@
                 {% endblock %}
             </div>
             <div class="bottom">
-                {% include 'default/include/footer.html' %}
+                {% block footer %}
+
+                {% endblock %}
             </div>
         </div>
     </body>

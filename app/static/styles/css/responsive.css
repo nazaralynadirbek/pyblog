@@ -23,10 +23,10 @@
   .container .top .header .right {
     display: none;
   }
-  .container .middle .content .articles .article .top .left {
+  .container .middle .content .articles .article.short .top .left {
     width: 100%;
   }
-  .container .middle .content .articles .article .top .right {
+  .container .middle .content .articles .article.short .top .right {
     display: none;
   }
 }
