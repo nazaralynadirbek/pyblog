@@ -7,3 +7,6 @@
 
 # Extensions
 *.pyc
+
+# Database
+*.db
