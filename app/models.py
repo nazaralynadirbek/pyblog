@@ -2,7 +2,15 @@
 
 from app import db
 
-class User(db.Model):
+from slugify import slugify
+from werkzeug.security import generate_password_hash, check_password_hash
+
+class Base:
+    def save(self):
+        db.session.add(self)
+        db.session.commit()
+
+class User(db.Model, Base):
     id = db.Column(db.Integer(), primary_key=True)
     username = db.Column(db.String())
     password = db.Column(db.String())
@@ -11,9 +19,15 @@ class User(db.Model):
 
     def __init__(self, username, password):
         self.username = username
-        self.password = password
+        self._set_password(password)
 
-class Category(db.Model):
+    def _set_password(self, password):
+        self.password = generate_password_hash(password)
+
+    def check_password(self, password):
+        return check_password_hash(self.password, password)
+
+class Category(db.Model, Base):
     id = db.Column(db.Integer(), primary_key=True)
     title = db.Column(db.String())
 
@@ -22,14 +36,25 @@ class Category(db.Model):
     def __init__(self, title):
         self.title = title
 
-class Article(db.Model):
+class Article(db.Model, Base):
     id = db.Column(db.Integer(), primary_key=True)
     title = db.Column(db.String())
+    description = db.Column(db.Text())
+    url = db.Column(db.String())
+
+    created_on = db.Column(db.DateTime(), server_default=db.func.now())
+    updated_on = db.Column(db.DateTime(), server_default=db.func.now(), onupdate=db.func.now())
 
     author = db.Column(db.Integer(), db.ForeignKey('user.id'))
     category = db.Column(db.Integer(), db.ForeignKey('category.id'))
 
-    def __init__(self, title, author, category):
+    def __init__(self, title, description, author, category):
         self.title = title
         self.author = author
         self.category = category
+        self.description = description
+
+        self._slugify()
+
+    def _slugify(self):
+        self.url = slugify(self.title)

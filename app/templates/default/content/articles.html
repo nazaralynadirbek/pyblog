@@ -3,66 +3,31 @@
 {% block content %}
     <div class="content wrapper">
         <div class="articles">
-            <div class="article short">
-                <div class="top">
-                    <div class="left">
-                        <div class="title">
-                            <h3>
-                                <a href="/articles/article">Introducing: Python</a>
-                            </h3>
+            {% for row in data.items %}
+                <div class="article short">
+                    <div class="top">
+                        <div class="left">
+                            <div class="title">
+                                <h3>
+                                    <a href="/articles/{{ row.url }}">{{ row.title }}</a>
+                                </h3>
+                            </div>
+                        </div>
+                        <div class="right">
+                            <div class="details">
+                                <ul class="list">
+                                    <li>Категория <a href="/tag/{{ row.pcategory.title|lower }}">{{ row.pcategory.title }}</a></li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
-                    <div class="right">
+                    <div class="bottom">
                         <div class="details">
-                            <ul class="list">
-                                <li>Добавлено <span>02 December 2016</span></li>
-                            </ul>
+                            <p>{{ row.description|truncate(1000, False) }}</p>
                         </div>
                     </div>
                 </div>
-                <div class="bottom">
-                    <div class="details">
-                        <p>
-                            Рыба известна, в первую очередь, как раннехристианский символ Иисуса Христа.
-                            В качестве секретного знака Иисуса Христа она присутствует на печатях и лампадах в римских катакомбных церквах.
-                            Там же встречается изображение рыбы, несущей на спине корзинку с хлебами и с красным предметом (бутылью вина), — символическое изображение Христа и Евхаристии (причащения).
-                            Корзина является символическим аналогом пирога. В других изображениях вместо корзины рыба несет на себе корабль — символ христианской церкви.
-                            Ранние христиане носили рыбок из металла, камня, перламутра или стекла на шее подобно тому, как сейчас носят нательные крестики.
-                            Евангельские тексты подчеркивают этот символизм: упоминается о чудесной ловле рыбы, в которой принимал участие Иисус; сам Рыба в христианской символике (символ) Две рыбы с якорем Иисус проводит аналогию между ловлей рыбы и обращением людей в новую веру (отсюда и «кольцо рыбака», которое носит папа Римский); рассказывается о кормлении пяти тысяч людей пятью хлебами и двумя рыбами.
-                            Новообращенных крестят водой. Крещение на латинском языке называется «piscina» («садок для рыбы»), а новообращенные — «pisciculi» («рыбки»). Изображение трех сплетенных рыб (или трех рыб с одной головой) — символ Троицы.
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="article short">
-                <div class="top">
-                    <div class="left">
-                        <div class="title">
-                            <h3>
-                                <a href="/articles/article">Introducing: R language</a>
-                            </h3>
-                        </div>
-                    </div>
-                    <div class="right">
-                        <div class="details">
-                            <ul class="list">
-                                <li>Добавлено <span>02 December 2016</span></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="bottom">
-                    <div class="details">
-                        <p>
-                            Рыба известна, в первую очередь, как раннехристианский символ Иисуса Христа.
-                            В качестве секретного знака Иисуса Христа она присутствует на печатях и лампадах в римских катакомбных церквах.
-                            Там же встречается изображение рыбы, несущей на спине корзинку с хлебами и с красным предметом (бутылью вина), — символическое изображение Христа и Евхаристии (причащения).
-                            Корзина является символическим аналогом пирога. В других изображениях вместо корзины рыба несет на себе корабль — символ христианской церкви.
-                            Ранние христиане носили рыбок из металла, камня, перламутра или стекла на шее подобно тому, как сейчас носят нательные крестики.
-                        </p>
-                    </div>
-                </div>
-            </div>
+            {% endfor %}
         </div>
     </div>
 {% endblock %}
@@ -70,7 +35,12 @@
 {% block footer %}
     <div class="footer">
         <div class="paginator wrapper">
-            <a href="" class="btn btn-empty">Старые записи</a>
+            {% if data.has_next %}
+                <a href="{{ url_for(request.endpoint, page=data.next_num, **args) }}" class="btn btn-empty">Старые записи</a>
+            {% endif %}
+            {% if data.has_prev %}
+                <a href="{{ url_for(request.endpoint, page=data.prev_num, **args) }}" class="btn btn-empty">Новые записи</a>
+            {% endif %}
         </div>
     </div>
 {% endblock %}

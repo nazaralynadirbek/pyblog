@@ -9,8 +9,9 @@
     <div class="middle">
         <div class="archive">
             <ul class="list">
-                <li><a href="">2015</a></li>
-                <li><a href="" class="active">2016</a></li>
+                {% for year in archive %}
+                    <li><a href="/archive/{{ year }}" class="active">{{ year }}</a></li>
+                {% endfor %}
             </ul>
         </div>
     </div>
