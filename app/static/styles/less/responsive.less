@@ -1,52 +1,58 @@
 @media screen and (max-width: 1024px) {
-  .top {
-    .header {
-      .left,
-      .right {
-        width: 50%;
-      }
-      .middle {
-        display: none;
+  .container {
+    .top {
+      .header {
+        .left,
+        .right {
+          width: 50%;
+        }
+        .middle {
+          display: none;
+        }
       }
     }
   }
 }
 
 @media screen and (max-width: 720px) {
-  .top {
-    .header {
-      .left {
-        width: 20%;
-      }
-      .right {
-        width: 80%;
+  .container {
+    .top {
+      .header {
+        .left {
+          width: 20%;
+        }
+        .right {
+          width: 80%;
+        }
       }
     }
   }
 }
 
 @media screen and (max-width: 520px){
-  .top {
-    .header {
-      .left {
-        width: 100%;
-        text-align: center;
-      }
-      .right {
-        display: none;
+  .container {
+    .top {
+      .header {
+        .left {
+          width: 100%;
+          text-align: center;
+        }
+        .right {
+          display: none;
+        }
       }
     }
-  }
-  .middle {
-    .content {
-      .articles {
-        .article.short {
-          .top {
-            .left {
-              width: 100%;
-            }
-            .right {
-              display: none;
+    .middle {
+      .content {
+        .articles {
+          .article.short {
+            .top {
+              .left {
+                width: 100%;
+              }
+              .right {
+                display: none;
+              }
             }
           }
         }
@@ -56,19 +62,21 @@
 }
 
 @media screen and (max-width: 320px){
-  .middle {
-    .content {
-      .articles {
-        .article.full {
-          .top {
-            .bottom {
-              .details {
-                ul.list {
-                  li {
-                    margin-left: 0;
+  .container {
+    .middle {
+      .content {
+        .articles {
+          .article.full {
+            .top {
+              .bottom {
+                .details {
+                  ul.list {
+                    li {
+                      margin-left: 0;
 
-                    &:first-child {
-                      display: none;
+                      &:first-child {
+                        display: none;
+                      }
                     }
                   }
                 }

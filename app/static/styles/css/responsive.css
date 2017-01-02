@@ -1,40 +1,40 @@
 @media screen and (max-width: 1024px) {
-  .top .header .left,
-  .top .header .right {
+  .container .top .header .left,
+  .container .top .header .right {
     width: 50%;
   }
-  .top .header .middle {
+  .container .top .header .middle {
     display: none;
   }
 }
 @media screen and (max-width: 720px) {
-  .top .header .left {
+  .container .top .header .left {
     width: 20%;
   }
-  .top .header .right {
+  .container .top .header .right {
     width: 80%;
   }
 }
 @media screen and (max-width: 520px) {
-  .top .header .left {
+  .container .top .header .left {
     width: 100%;
     text-align: center;
   }
-  .top .header .right {
+  .container .top .header .right {
     display: none;
   }
-  .middle .content .articles .article.short .top .left {
+  .container .middle .content .articles .article.short .top .left {
     width: 100%;
   }
-  .middle .content .articles .article.short .top .right {
+  .container .middle .content .articles .article.short .top .right {
     display: none;
   }
 }
 @media screen and (max-width: 320px) {
-  .middle .content .articles .article.full .top .bottom .details ul.list li {
+  .container .middle .content .articles .article.full .top .bottom .details ul.list li {
     margin-left: 0;
   }
-  .middle .content .articles .article.full .top .bottom .details ul.list li:first-child {
+  .container .middle .content .articles .article.full .top .bottom .details ul.list li:first-child {
     display: none;
   }
 }
