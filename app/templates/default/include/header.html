@@ -10,7 +10,13 @@
         <div class="archive">
             <ul class="list">
                 {% for year in archive %}
-                    <li><a href="/archive/{{ year }}" class="active">{{ year }}</a></li>
+                    {% if year|string in request.path %}
+                        <li><a href="/archive/{{ year }}" class="active">{{ year }}</a></li>
+                    {% elif 'archive' not in request.path and year == current_year %}
+                        <li><a href="/archive/{{ year }}" class="active">{{ year }}</a></li>
+                    {% else %}
+                        <li><a href="/archive/{{ year }}">{{ year }}</a></li>
+                    {% endif %}
                 {% endfor %}
             </ul>
         </div>
@@ -19,7 +25,7 @@
         <div class="menu">
             <ul class="list">
                 <li><a href="/">Блог</a></li>
-                <li><a href="/">Обо мне</a></li>
+                <li><a href="/about">Обо мне</a></li>
                 <li>
                     <a href="https://google.com" target="_blank" class="btn btn-default">Задать вопрос</a>
                 </li>

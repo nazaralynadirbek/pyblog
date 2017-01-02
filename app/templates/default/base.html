@@ -15,7 +15,9 @@
     <body>
         <div class="container">
             <div class="top">
-                {% include 'default/include/header.html' %}
+                {% block header %}
+                    {% include 'default/include/header.html' %}
+                {% endblock %}
             </div>
             <div class="middle">
                 {% block content %}

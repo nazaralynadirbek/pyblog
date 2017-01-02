@@ -46,6 +46,7 @@ def archive(year, page=1):
 
     articles = Article.query.filter(Article.updated_on >= start,
                                     Article.updated_on <= end).\
+                             order_by(desc(Article.id)).\
                              paginate(page, current_app.config['POSTS_PER_PAGE'], True)
 
     # Arguments
@@ -56,8 +57,9 @@ def archive(year, page=1):
 @app.route('/tag/<category>')
 @app.route('/tag/<category>/<int:page>')
 def tag(category, page=1):
-    articles = Article.query.filter_by(category=Category.query.filter(Category.title.ilike(category)).first().id)\
-                            .paginate(page, current_app.config['POSTS_PER_PAGE'], True)
+    articles = Article.query.filter_by(category=Category.query.filter(Category.title.ilike(category)).first().id).\
+                             order_by(desc(Article.id)).\
+                             paginate(page, current_app.config['POSTS_PER_PAGE'], True)
 
     # Arguments
     args = dict(category=category)
@@ -74,4 +76,7 @@ def archive_processor():
         if article.updated_on.year not in archive:
             archive.append(article.updated_on.year)
 
-    return dict(archive=archive)
+    # Current year
+    current_year = datetime.date.today().year
+
+    return dict(archive=archive, current_year=current_year)

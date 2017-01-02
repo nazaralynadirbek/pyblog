@@ -13,7 +13,7 @@
                     <div class="bottom">
                         <div class="details">
                             <ul class="list">
-                                <li>Добавлено <span>{{ data.updated_on }}</span></li>
+                                <li>Добавлено <span>{{ data.updated_on.strftime('%d %B %Y') }}</span></li>
                                 <li>Категория <a href="/tag/{{ data.pcategory.title|lower }}">{{ data.pcategory.title }}</a></li>
                             </ul>
                         </div>
@@ -21,7 +21,7 @@
                 </div>
                 <div class="bottom">
                     <div class="details">
-                        <p>{{ data.description }}</p>
+                        {{ data.description|safe }}
                     </div>
                 </div>
             </div>

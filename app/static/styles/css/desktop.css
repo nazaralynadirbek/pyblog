@@ -93,6 +93,9 @@
   content: '';
   display: block;
 }
+.container .middle .content {
+  position: relative;
+}
 .container .middle .content .articles .article {
   background-color: transparent;
 }
@@ -214,6 +217,15 @@
 .container .middle .content .articles .article.full .bottom .details img {
   width: 100%;
   display: block;
+}
+.container .middle .content .error img {
+  top: 0;
+  left: 0;
+  width: 274px;
+  height: 144px;
+  margin-top: -72px;
+  margin-left: -137px;
+  position: absolute;
 }
 .container .middle .content.wrapper {
   margin: 0 auto;
