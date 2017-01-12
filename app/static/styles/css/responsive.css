@@ -23,11 +23,17 @@
   .container .top .header .right {
     display: none;
   }
-  .container .middle .content .articles .article.short .top .left {
+  .container .middle .content.wrapper {
+    padding: 40px 20px 0;
+  }
+  .container .middle .content.wrapper .articles .article.short .top .left {
     width: 100%;
   }
-  .container .middle .content .articles .article.short .top .right {
+  .container .middle .content.wrapper .articles .article.short .top .right {
     display: none;
+  }
+  .container .bottom .footer {
+    padding: 44px 0;
   }
 }
 @media screen and (max-width: 320px) {

@@ -31,8 +31,16 @@
 
 {% block footer %}
     <div class="footer">
-        <div class="paginator wrapper">
-            <a href="/" class="btn btn-empty">Вернуться на главную</a>
+        <div class="comments wrapper">
+            <div id="disqus_thread"></div>
+            <script>
+                (function() {
+                    var d = document, s = d.createElement('script');
+                    s.src = '//personal-blog-4.disqus.com/embed.js';
+                    s.setAttribute('data-timestamp', +new Date());
+                    (d.head || d.body).appendChild(s);
+                })();
+            </script>
         </div>
     </div>
 {% endblock %}
