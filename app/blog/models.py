@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 
-from app import db
+from app.blog import db
+
+from sqlalchemy_utils import observes
 
 from slugify import slugify
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -33,14 +35,14 @@ class Category(db.Model, Base):
 
     articles = db.relationship('Article', backref='pcategory', lazy='dynamic')
 
-    def __init__(self, title):
+    def __init__(self, title=""):
         self.title = title
 
 class Article(db.Model, Base):
     id = db.Column(db.Integer(), primary_key=True)
     title = db.Column(db.String())
     description = db.Column(db.Text())
-    url = db.Column(db.String())
+    url = db.Column(db.String(), index=True)
 
     created_on = db.Column(db.DateTime(), server_default=db.func.now())
     updated_on = db.Column(db.DateTime(), server_default=db.func.now(), onupdate=db.func.now())
@@ -48,13 +50,6 @@ class Article(db.Model, Base):
     author = db.Column(db.Integer(), db.ForeignKey('user.id'))
     category = db.Column(db.Integer(), db.ForeignKey('category.id'))
 
-    def __init__(self, title, description, author, category):
-        self.title = title
-        self.author = author
-        self.category = category
-        self.description = description
-
-        self._slugify()
-
-    def _slugify(self):
-        self.url = slugify(self.title)
+    @observes('title')
+    def _url(self, title):
+        self.url = slugify(title)

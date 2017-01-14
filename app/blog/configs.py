@@ -21,7 +21,7 @@ class DevelopmentConfig(Config):
 
     # Database
     SQLALCHEMY_TRACK_MODIFICATIONS = True
-    SQLALCHEMY_DATABASE_URI = 'sqlite:///../app.db'
+    SQLALCHEMY_DATABASE_URI = 'sqlite:///../../app.db'
 
 class TestingConfig(Config):
     pass

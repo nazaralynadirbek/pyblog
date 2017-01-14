@@ -2,9 +2,9 @@
 
 import datetime
 
-from app import app
+from app.blog import app
 
-from app.models import Article, Category
+from app.blog.models import Article, Category
 
 from flask import redirect
 from flask import current_app
